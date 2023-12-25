@@ -38,14 +38,5 @@ opt.clipboard:append("unnamedplus") -- use system clipboard as default register
 opt.splitright = true -- split vertical window to the right
 opt.splitbelow = true -- split horizontal window to the bottom
 
-opt.iskeyword:append("-") -- consider string-string as whole word
-
-local autogroup = vim.api.nvim_create_augroup
-local autocmd = vim.api.nvim_create_autocmd
-
-autogroup("python", { clear = true })
-autocmd({ "Filetype" }, {
-  group = "python",
-  pattern = "python",
-  command = "setlocal indentkeys-=<:> indentkeys-=:",
-})
+-- turn off swapfile
+opt.swapfile = false
