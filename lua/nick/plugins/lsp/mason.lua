@@ -37,6 +37,9 @@ return {
         "emmet_ls",
         "ruff_lsp",
         "gopls",
+        "clangd",
+        "terraformls",
+        "tflint",
       },
       -- auto-install configured servers (with lspconfig)
       automatic_installation = true, -- not the same as ensure_installed
@@ -51,6 +54,8 @@ return {
         "gofumpt", -- go formatter
         "goimports", -- go formatter
         "golangci-lint", -- go linter
+        "clang-format", -- C/C++ formatter
+        "cpplint", -- C/C++ linter
       },
     })
   end,

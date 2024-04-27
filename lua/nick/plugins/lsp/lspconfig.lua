@@ -137,6 +137,24 @@ return {
       on_attach = on_attach,
     })
 
+    -- configure C/C++ server
+    lspconfig["clangd"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+
+    -- configure terraform server
+    lspconfig["terraformls"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+
+    -- configure terraform server
+    lspconfig["tflint"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+
     -- configure lua server (with special settings)
     lspconfig["lua_ls"].setup({
       capabilities = capabilities,
