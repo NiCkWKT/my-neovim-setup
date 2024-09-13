@@ -44,3 +44,6 @@ opt.swapfile = false
 -- Show tab and space
 opt.list = true
 opt.listchars = { tab = "> ", space = "·" }
+
+-- For visual block mode
+opt.virtualedit = "block"
