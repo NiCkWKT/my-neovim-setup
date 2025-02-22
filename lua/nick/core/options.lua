@@ -10,6 +10,15 @@ opt.shiftwidth = 4 -- 2 spaces for indent width
 opt.expandtab = true -- expand tab to spaces
 opt.autoindent = true -- copy indent from current line when starting new one
 
+-- filetype-specific indent settings
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "javascript", "typescript", "javascriptreact", "typescriptreact", "json", "yaml", "lua" },
+  callback = function()
+    vim.opt_local.tabstop = 2
+    vim.opt_local.shiftwidth = 2
+  end,
+})
+
 -- line wrapping
 opt.wrap = false -- disable line wrapping
 
@@ -47,3 +56,15 @@ opt.listchars = { tab = "> ", space = "·" }
 
 -- For visual block mode
 opt.virtualedit = "block"
+
+-- Always have 10 lines above
+opt.scrolloff = 10
+
+-- Color column
+opt.colorcolumn = "100"
+
+-- Code folding
+opt.foldcolumn = "1" -- '0' is not bad
+opt.foldlevel = 99
+opt.foldlevelstart = 99
+opt.foldenable = true

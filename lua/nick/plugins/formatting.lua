@@ -7,17 +7,17 @@ return {
 
     conform.setup({
       formatters_by_ft = {
-        javascript = { "prettier" },
-        typescript = { "prettier" },
-        javascriptreact = { "prettier" },
-        typescriptreact = { "prettier" },
+        javascript = { "deno_fmt" },
+        typescript = { "deno_fmt" },
+        -- javascriptreact = { "prettier" },
+        -- typescriptreact = { "prettier" },
+        -- graphql = { "prettier" },
         svelte = { "prettier" },
         css = { "prettier" },
         html = { "prettier" },
         json = { "prettier" },
         yaml = { "prettier" },
         markdown = { "prettier" },
-        graphql = { "prettier" },
         lua = { "stylua" },
         python = { "ruff_format" },
         go = { "goimports", "gofumpt" },

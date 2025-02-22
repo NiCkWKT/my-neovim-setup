@@ -77,10 +77,21 @@ return {
     })
 
     -- configure typescript server with plugin
-    lspconfig["tsserver"].setup({
+    -- lspconfig["tsserver"].setup({
+    --   capabilities = capabilities,
+    --   on_attach = on_attach,
+    -- })
+    lspconfig["denols"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
+      root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc", "package.json"),
     })
+
+    -- lspconfig["ts_ls"].setup({
+    --   capabilities = capabilities,
+    --   root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
+    --   on_attach = on_attach,
+    -- })
 
     -- configure css server
     lspconfig["cssls"].setup({
@@ -112,23 +123,17 @@ return {
     })
 
     -- configure graphql language server
-    lspconfig["graphql"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
-      filetypes = { "graphql", "gql", "svelte", "typescriptreact", "javascriptreact" },
-    })
+    -- lspconfig["graphql"].setup({
+    --   capabilities = capabilities,
+    --   on_attach = on_attach,
+    --   filetypes = { "graphql", "gql", "svelte", "typescriptreact", "javascriptreact" },
+    -- })
 
     -- configure emmet language server
     lspconfig["emmet_ls"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
-      filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
-    })
-
-    -- configure python server
-    lspconfig["ruff_lsp"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
+      filetypes = { "html", "css", "sass", "scss", "less", "svelte" },
     })
 
     -- configure go server
@@ -156,9 +161,31 @@ return {
     })
 
     -- configure python server
+    -- lspconfig["ruff"].setup({
+    --   capabilities = capabilities,
+    --   on_attach = on_attach,
+    --   init_options = {
+    --     settings = {
+    --       logLevel = "debug",
+    --     },
+    --   },
+    -- })
+
     lspconfig["pyright"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
+      -- settings = {
+      --   pyright = {
+      --     -- Using Ruff's import organizer
+      --     disableOrganizeImports = true,
+      --   },
+      --   -- python = {
+      --   --   analysis = {
+      --   --     -- Ignore all files for analysis to exclusively use Ruff for linting
+      --   --     ignore = { "*" },
+      --   --   },
+      --   -- },
+      -- },
     })
 
     -- configure lua server (with special settings)
