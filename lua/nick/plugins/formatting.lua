@@ -7,10 +7,10 @@ return {
 
     conform.setup({
       formatters_by_ft = {
-        javascript = { "deno_fmt" },
-        typescript = { "deno_fmt" },
-        -- javascriptreact = { "prettier" },
-        -- typescriptreact = { "prettier" },
+        javascript = { "prettier" },
+        typescript = { "prettier" },
+        javascriptreact = { "prettier" },
+        typescriptreact = { "prettier" },
         -- graphql = { "prettier" },
         svelte = { "prettier" },
         css = { "prettier" },

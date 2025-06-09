@@ -77,19 +77,21 @@ return {
     })
 
     -- configure typescript server with plugin
-    -- lspconfig["tsserver"].setup({
-    --   capabilities = capabilities,
-    --   on_attach = on_attach,
-    -- })
-    lspconfig["denols"].setup({
+    lspconfig["ts_ls"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
-      root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc", "package.json"),
+      root_dir = lspconfig.util.root_pattern("package.json"),
     })
+
+    -- lspconfig["denols"].setup({
+    --   capabilities = capabilities,
+    --   on_attach = on_attach,
+    --   root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
+    -- })
 
     -- lspconfig["ts_ls"].setup({
     --   capabilities = capabilities,
-    --   root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
+    --   root_dir = lspconfig.util.root_pattern("package.json"),
     --   on_attach = on_attach,
     -- })
 
@@ -133,7 +135,28 @@ return {
     lspconfig["emmet_ls"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
-      filetypes = { "html", "css", "sass", "scss", "less", "svelte" },
+      filetypes = {
+        "css",
+        "eruby",
+        "html",
+        "javascript",
+        "javascriptreact",
+        "less",
+        "sass",
+        "scss",
+        "svelte",
+        "pug",
+        "typescriptreact",
+        "vue",
+      },
+      init_options = {
+        html = {
+          options = {
+            -- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
+            ["bem.enabled"] = true,
+          },
+        },
+      },
     })
 
     -- configure go server

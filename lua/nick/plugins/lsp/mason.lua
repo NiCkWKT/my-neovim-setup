@@ -26,10 +26,10 @@ return {
 
     mason_lspconfig.setup({
       -- list of servers for mason to install
-      -- "tsserver",
       -- "graphql",
       ensure_installed = {
-        "denols",
+        -- "denols",
+        "ts_ls",
         "html",
         "cssls",
         "tailwindcss",
@@ -50,10 +50,10 @@ return {
     mason_tool_installer.setup({
       ensure_installed = {
         { "stylua", version = "v0.19.1" }, -- lua formatter
+        "eslint_d", -- js linter
         "prettier", -- prettier formatter
         "deno", -- linter
         "ruff", -- python linter and formatter
-        "eslint_d", -- js linter
         "gofumpt", -- go formatter
         "goimports", -- go formatter
         "golangci-lint", -- go linter
